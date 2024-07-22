@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+
+body,
+h1,
+input,
+button {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2f7ff;
+}
+
+.game-container {
+    width: 600px;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    color: #2f2d52;
+    margin-bottom: 20px;
+}
+
+.setup input {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    margin: 10px auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.difficulty-selection {
+    display: flex;
+    justify-content: center;
+    margin: 10px 10px;
+}
+
+.difficulty-selection label {
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #000000;
+}
+
+.difficulty-selection input[type="radio"] {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border-radius: 50%;
+    vertical-align: middle;
+    cursor: pointer;
+    position: relative;
+}
+
+.difficulty-selection input[type="radio"]::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #f0ecec;
+    transition: background-color 0.3s;
+}
+
+.difficulty-selection input[type="radio"]:checked::before {
+    background-color: #ff7f7f;
+}
+
+.setup button {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    margin: 20px auto;
+    background-color: #93d8f8;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.setup button:hover {
+    background-color: #2f2d51;
+}
+
+.game {
+    margin-top: 20px;
+}
+
+.gameStatus {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #2f2d51;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    grid-gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #93d8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #2f2d51;
+}
+
+.cell::before {
+    content: '';
+    position: absolute;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+.cell.x::before {
+    content: 'X';
+    color: red;
+}
+
+.cell.o::before {
+    content: 'O';
+    color: #0000ff;
+}
+
+.cell:hover.x::before {
+    color: #ff7f7f;
+}
+
+.cell:hover.o::before {
+    color: #7f7fff;
+}
+
+#restartButton,
+#setupButton,
+#endButton {
+    padding: 10px;
+    margin: 5px;
+    width: 40%;
+    background: #ff97b5;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#restartButton:hover,
+#setupButton:hover,
+#endButton:hover {
+    background: #2f2d51;
+}
+
+#gameDifficulty {
+    font-size: 14px;
+    color: #ff7f7f;
+    margin-bottom: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.scoreboard p {
+    font-size: 16px;
+    color: #2f2d51;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
